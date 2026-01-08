@@ -27,15 +27,44 @@ const Index = () => {
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
       <div className="absolute inset-0 bg-gradient-to-br from-purple/10 via-background to-blue/10 pointer-events-none" />
       
-      <section className="relative min-h-screen flex items-center justify-center px-4 py-20">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
+        <div className="container max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+          <a href="/" className="flex items-center hover-scale">
+            <img 
+              src="https://cdn.poehali.dev/files/Group 1.png" 
+              alt="Точка сборки" 
+              className="h-10 md:h-12"
+            />
+          </a>
+          
+          <div className="flex items-center gap-4 md:gap-6">
+            <a 
+              href="tel:+79046777224" 
+              className="flex items-center gap-2 text-foreground hover:text-purple transition-colors"
+            >
+              <Icon name="Phone" size={18} />
+              <span className="hidden sm:inline font-medium">+7 904 677 7224</span>
+            </a>
+            
+            <a 
+              href="https://t.me/leopuz7" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-blue/10 hover:bg-blue/20 text-blue rounded-lg transition-all hover-scale"
+            >
+              <Icon name="Send" size={18} />
+              <span className="hidden sm:inline font-medium">Telegram</span>
+            </a>
+          </div>
+        </div>
+      </header>
+      
+      <section className="relative min-h-screen flex items-center justify-center px-4 py-20 pt-32">
         <div className="absolute top-20 left-10 w-72 h-72 bg-purple/20 rounded-full blur-3xl animate-float" />
         <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue/20 rounded-full blur-3xl animate-float" style={{ animationDelay: "1s" }} />
         
         <div className="container max-w-6xl mx-auto text-center relative z-10">
           <div className="animate-fade-in">
-            <div className="inline-block mb-6 px-6 py-2 bg-purple/10 border border-purple/30 rounded-full">
-              <span className="text-purple font-medium">⚡ Точка сборки</span>
-            </div>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
               Ваш <span className="gradient-text">IT-партнёр</span><br />для роста бизнеса
             </h1>
