@@ -11,12 +11,34 @@ const Index = () => {
     contact: "",
     description: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    alert("Спасибо! Мы свяжемся с вами в ближайшее время.");
-    setFormData({ name: "", contact: "", description: "" });
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch('https://functions.poehali.dev/9589ebbd-2271-49e9-ab74-1f009f40b7e7', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        alert("🎉 Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время!");
+        setFormData({ name: "", contact: "", description: "" });
+      } else {
+        alert("❌ Ошибка отправки: " + (result.error || "Попробуйте позже"));
+      }
+    } catch (error) {
+      alert("❌ Ошибка соединения. Проверьте интернет и попробуйте снова.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const scrollToForm = () => {
@@ -317,8 +339,13 @@ const Index = () => {
                 />
               </div>
 
-              <Button type="submit" size="lg" className="w-full bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold text-lg rounded-xl hover-scale">
-                Отправить запрос
+              <Button 
+                type="submit" 
+                size="lg" 
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold text-lg rounded-xl hover-scale disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Отправляю..." : "Отправить запрос"}
                 <Icon name="Send" className="ml-2" size={20} />
               </Button>
             </form>
