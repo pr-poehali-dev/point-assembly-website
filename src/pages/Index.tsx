@@ -287,7 +287,7 @@ const Index = () => {
           </div>
 
           <div className="text-center mt-10">
-            <Button onClick={scrollToForm} size="lg" className="bg-gradient-to-r from-magenta to-purple hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
+            <Button onClick={openTelegram} size="lg" className="bg-gradient-to-r from-magenta to-purple hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
               Обсудить мой проект
             </Button>
           </div>
