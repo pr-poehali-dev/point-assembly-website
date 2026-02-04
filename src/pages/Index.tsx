@@ -113,9 +113,13 @@ const Index = () => {
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="gradient-text">Один партнёр</span> вместо десяти подрядчиков
             </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto mb-8">
               Мы — ваша «Точка сборки». Берём на себя полную ответственность за digital-развитие вашего бизнеса. Ваш рост — наш главный KPI.
             </p>
+            <Button onClick={openTelegram} size="lg" className="bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
+              Обсудить проект
+              <Icon name="ArrowRight" className="ml-2" size={20} />
+            </Button>
           </div>
         </div>
       </section>
@@ -246,12 +250,6 @@ const Index = () => {
                 </div>
               </div>
             </Card>
-          </div>
-
-          <div className="text-center mt-10">
-            <Button onClick={openTelegram} size="lg" className="bg-gradient-to-r from-magenta to-purple hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
-              Обсудить мой проект
-            </Button>
           </div>
         </div>
       </section>
