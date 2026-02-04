@@ -41,8 +41,8 @@ const Index = () => {
     }
   };
 
-  const scrollToForm = () => {
-    document.getElementById("contact-form")?.scrollIntoView({ behavior: "smooth" });
+  const openTelegram = () => {
+    window.open('https://t.me/leopuz7', '_blank');
   };
 
   return (
@@ -93,7 +93,7 @@ const Index = () => {
             <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-3xl mx-auto">
               Сайты, реклама, CRM и не только. Становимся частью вашей команды, чтобы закрывать любые IT-запросы и повышать доход.
             </p>
-            <Button onClick={scrollToForm} size="lg" className="bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
+            <Button onClick={openTelegram} size="lg" className="bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
               Получить консультацию
               <Icon name="ArrowRight" className="ml-2" size={20} />
             </Button>
