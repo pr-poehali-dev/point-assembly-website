@@ -1,46 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import Icon from "@/components/ui/icon";
-import { useState } from "react";
 
 const Index = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    contact: "",
-    description: ""
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch('https://functions.poehali.dev/9589ebbd-2271-49e9-ab74-1f009f40b7e7', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData)
-      });
-
-      const result = await response.json();
-
-      if (response.ok) {
-        alert("🎉 Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время!");
-        setFormData({ name: "", contact: "", description: "" });
-      } else {
-        alert("❌ Ошибка отправки: " + (result.error || "Попробуйте позже"));
-      }
-    } catch (error) {
-      alert("❌ Ошибка соединения. Проверьте интернет и попробуйте снова.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   const openTelegram = () => {
     window.open('https://t.me/leopuz7', '_blank');
   };
@@ -295,66 +257,19 @@ const Index = () => {
       </section>
 
       <section id="contact-form" className="relative py-20 px-4 bg-gradient-to-b from-background to-purple/5">
-        <div className="container max-w-2xl mx-auto">
-          <div className="text-center mb-8 animate-fade-in">
+        <div className="container max-w-2xl mx-auto text-center">
+          <div className="mb-8 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
               Готовы обсудить <span className="gradient-text">партнёрство</span>?
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-xl text-muted-foreground mb-8">
               Кратко опишите вашу задачу, и мы подготовим первичные идеи для обсуждения
             </p>
+            <Button onClick={openTelegram} size="lg" className="bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold px-8 py-6 text-lg rounded-xl hover-scale">
+              Обсудить проект
+              <Icon name="ArrowRight" className="ml-2" size={20} />
+            </Button>
           </div>
-
-          <Card className="p-8 bg-card border-border shadow-2xl animate-scale-in">
-            <form onSubmit={handleSubmit} className="space-y-6">
-              <div>
-                <label className="block text-sm font-medium mb-2">Имя</label>
-                <Input
-                  required
-                  value={formData.name}
-                  onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  placeholder="Как к вам обращаться?"
-                  className="bg-background border-border"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Телефон или Telegram</label>
-                <Input
-                  required
-                  value={formData.contact}
-                  onChange={(e) => setFormData({ ...formData, contact: e.target.value })}
-                  placeholder="+7 или @username"
-                  className="bg-background border-border"
-                />
-              </div>
-              
-              <div>
-                <label className="block text-sm font-medium mb-2">Краткое описание задачи (необязательно)</label>
-                <Textarea
-                  value={formData.description}
-                  onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  placeholder="Расскажите, чем мы можем помочь..."
-                  className="bg-background border-border min-h-[120px]"
-                />
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                disabled={isSubmitting}
-                className="w-full bg-gradient-to-r from-purple via-magenta to-blue hover:opacity-90 text-white font-semibold text-lg rounded-xl hover-scale disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                {isSubmitting ? "Отправляю..." : "Отправить запрос"}
-                <Icon name="Send" className="ml-2" size={20} />
-              </Button>
-            </form>
-
-            <p className="text-sm text-muted-foreground text-center mt-6 flex items-center justify-center gap-2">
-              <Icon name="Lock" size={16} className="text-purple" />
-              Конфиденциально. Первая консультация — бесплатно.
-            </p>
-          </Card>
         </div>
       </section>
 
