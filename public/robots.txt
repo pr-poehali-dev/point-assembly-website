@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://точкасборки.рф/sitemap.xml
+Sitemap: https://dothub.tech/sitemap.xml
