@@ -175,7 +175,7 @@ const Index = () => {
                 <div className="mb-4">
                   <span className="px-4 py-1 bg-purple/20 text-purple rounded-full text-sm font-medium">Стоматология</span>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">Стоматология в Набережных Челнах</h3>
+                <h3 className="text-2xl font-bold mb-3">Стоматологическая клиника</h3>
                 <p className="text-muted-foreground mb-4">
                   <strong>Задача:</strong> Увеличить количество первичных записей и автоматизировать напоминания
                 </p>
@@ -274,7 +274,7 @@ const Index = () => {
       <footer className="relative py-12 px-4 border-t border-border">
         <div className="container max-w-6xl mx-auto text-center">
           <p className="text-muted-foreground">
-            © 2024 Точка сборки. Ваш IT-партнёр для роста бизнеса.
+            © 2026 Точка сборки. Ваш IT-партнёр для роста бизнеса.
           </p>
         </div>
       </footer>
